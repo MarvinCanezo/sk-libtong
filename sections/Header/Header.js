@@ -195,7 +195,7 @@ export default function Appbar() {
                             }}
                             variant="h2"
                         >
-                            ARCHITECT
+                            JUNIOR ARCHITECT
                         </Typography>
 
                         <Space className="mt-4" size={20}>
@@ -316,12 +316,15 @@ export default function Appbar() {
                                 </Typography>
                                 <Typography
                                     variant="subtitle2"
-                                    // textAlign="justify"
+                                    textAlign="justify"
                                     className="mt-3"
                                     style={{ letterSpacing: "0.5px" }}
                                 >
-                                    Hello! I am Anthony Barnett. Web Developer,
-                                    Graphic Designer and Photographer.
+                                    Hello! I am Marvin Canezo. A competent
+                                    Architectural Designer offering a wealth of
+                                    experience in Project Management, Revit
+                                    modeling, graphic presentations and
+                                    sustainable strategies.
                                 </Typography>
                                 <Typography
                                     variant="subtitle2"
@@ -329,12 +332,11 @@ export default function Appbar() {
                                     textAlign="justify"
                                     style={{ letterSpacing: "0.5px" }}
                                 >
-                                    Creative CV is a HTML resume template for
-                                    professionals. Built with Bootstrap 4, Now
-                                    UI Kit and FontAwesome, this modern and
-                                    responsive design template is perfect to
-                                    showcase your portfolio, skills and
-                                    experience.
+                                    Detail-oriented and certified Junior
+                                    Architect who excels at developing
+                                    construction drawings, generating 3D models,
+                                    monitoring the onsite workmanship, and
+                                    conducting market research.
                                 </Typography>
                             </Grid>
 
