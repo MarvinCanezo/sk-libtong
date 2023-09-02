@@ -3,7 +3,14 @@ import { Button, Progress, Space } from "antd";
 import { useState, useEffect } from "react";
 import { MdLightMode, MdDarkMode } from "react-icons/md";
 import { useTheme } from "next-themes";
-import { AppBar, Avatar, Container, Paper, Typography } from "@mui/material";
+import {
+    AppBar,
+    Avatar,
+    Box,
+    Container,
+    Paper,
+    Typography,
+} from "@mui/material";
 
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
@@ -88,7 +95,16 @@ export default function Appbar() {
             <AppBar position="fixed" elevation={0} className="appbar">
                 <Container className="h-100 d-flex align-items-center">
                     <Grid container>
-                        <Grid item xs={6}>
+                        <Grid
+                            item
+                            xs={6}
+                            sx={{
+                                display: {
+                                    xs: "none",
+                                    sm: "block",
+                                },
+                            }}
+                        >
                             <a href="#home">
                                 <Typography
                                     variant="h5"
@@ -109,7 +125,8 @@ export default function Appbar() {
                         </Grid>
                         <Grid
                             item
-                            xs={6}
+                            xs={12}
+                            sm={6}
                             className="d-flex justify-content-end align-items-center"
                         >
                             {navItems.map((item, idx) => (
@@ -117,13 +134,11 @@ export default function Appbar() {
                                     key={idx}
                                     type="link"
                                     href={`#${item}`}
-                                    // onClick={() => setHash(`#${item}`)}
                                     className={`menu-item ${
                                         hash === `#${item}` && theme === "dark"
                                             ? "active-menu"
                                             : ""
                                     }`}
-                                    // href={`#${item}`}
                                     style={
                                         hash === `#${item}` && theme === "light"
                                             ? {
@@ -136,23 +151,33 @@ export default function Appbar() {
                                     {item.toUpperCase()}
                                 </Button>
                             ))}
-                            <Button
-                                type="link"
-                                className="theme-btn"
-                                // onClick={() =>
-                                //     setTheme(
-                                //         theme === "light"
-                                //             ? "dark"
-                                //             : "light"
-                                //     )
-                                // }
+                            <Box
+                                sx={{
+                                    display: {
+                                        xs: "none",
+                                        sm: "block",
+                                    },
+                                }}
                             >
-                                {theme === "light" ? (
-                                    <MdDarkMode className="theme-icon" />
-                                ) : (
-                                    <MdLightMode className="theme-icon" />
-                                )}
-                            </Button>
+                                <Button
+                                    type="link"
+                                    className="theme-btn"
+
+                                    // onClick={() =>
+                                    //     setTheme(
+                                    //         theme === "light"
+                                    //             ? "dark"
+                                    //             : "light"
+                                    //     )
+                                    // }
+                                >
+                                    {theme === "light" ? (
+                                        <MdDarkMode className="theme-icon" />
+                                    ) : (
+                                        <MdLightMode className="theme-icon" />
+                                    )}
+                                </Button>
+                            </Box>
                         </Grid>
                     </Grid>
                 </Container>
