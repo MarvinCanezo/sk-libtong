@@ -1,9 +1,15 @@
 import Grid from "@mui/material/Grid";
-import { Button, Space, Typography } from "antd";
+import { Button, Progress, Space } from "antd";
 import { useState, useEffect } from "react";
 import { MdLightMode, MdDarkMode } from "react-icons/md";
 import { useTheme } from "next-themes";
-import { AppBar, Avatar, Container } from "@mui/material";
+import { AppBar, Avatar, Container, Paper, Typography } from "@mui/material";
+
+import ImageList from "@mui/material/ImageList";
+import ImageListItem from "@mui/material/ImageListItem";
+import ImageListItemBar from "@mui/material/ImageListItemBar";
+import ListSubheader from "@mui/material/ListSubheader";
+import IconButton from "@mui/material/IconButton";
 import {
     FaFacebookF,
     FaTwitter,
@@ -13,6 +19,46 @@ import {
 
 const navItems = ["about", "skills", "portfolio", "contact"];
 
+const itemData = [
+    {
+        img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+        title: "Breakfast",
+        author: "@bkristastucchio",
+        rows: 2,
+        cols: 2,
+        featured: true,
+    },
+    {
+        img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+        title: "Burger",
+        author: "@rollelflex_graphy726",
+    },
+    {
+        img: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
+        title: "Camera",
+        author: "@helloimnik",
+    },
+    {
+        img: "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c",
+        title: "Coffee",
+        author: "@nolanissac",
+        cols: 2,
+    },
+    {
+        img: "https://images.unsplash.com/photo-1533827432537-70133748f5c8",
+        title: "Hats",
+        author: "@hjrc33",
+        cols: 2,
+    },
+    {
+        img: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62",
+        title: "Honey",
+        author: "@arwinneil",
+        rows: 2,
+        cols: 2,
+        featured: true,
+    },
+];
 export default function Appbar() {
     const { theme, setTheme } = useTheme();
     const [hash, setHash] = useState("#home");
@@ -54,6 +100,7 @@ export default function Appbar() {
                                 <Button
                                     key={idx}
                                     type="link"
+                                    href={`#${item}`}
                                     // onClick={() => setHash(`#${item}`)}
                                     className={`menu-item ${
                                         hash === `#${item}` && theme === "dark"
@@ -96,7 +143,10 @@ export default function Appbar() {
             </AppBar>
 
             <div className="main">
-                <div className="h-100 d-flex justify-content-center align-items-center">
+                <div
+                    className="h-100 d-flex justify-content-center align-items-center"
+                    id="home"
+                >
                     <div className="d-flex justify-content-center flex-column align-items-center">
                         <Avatar
                             alt="Marvin Canezo"
@@ -167,11 +217,12 @@ export default function Appbar() {
 
             <Container
                 style={{
-                    minHeight: "100vh",
+                    // minHeight: "100vh",
+                    paddingBottom: "5em",
                     marginTop: "-2em",
                 }}
             >
-                <Space className="d-flex justify-content-center">
+                <Space className="d-flex justify-content-center" size={15}>
                     <a
                         href="https://www.facebook.com/marvinvillafuertecanezo"
                         target="_blank"
@@ -186,34 +237,372 @@ export default function Appbar() {
                             <FaFacebookF />
                         </Avatar>
                     </a>
-                    <Avatar
-                        style={{
-                            height: "60px",
-                            width: "60px",
-                            background: "#898988",
-                        }}
+                    <a
+                        href="https://www.instagram.com/ar_nivram/"
+                        target="_blank"
                     >
-                        <FaTwitter />
-                    </Avatar>{" "}
-                    <Avatar
-                        style={{
-                            height: "60px",
-                            width: "60px",
-                            background: "#898988",
-                        }}
+                        <Avatar
+                            style={{
+                                height: "60px",
+                                width: "60px",
+                                background: "#898988",
+                            }}
+                        >
+                            <FaTwitter />
+                        </Avatar>
+                    </a>
+                    <a
+                        href="https://www.facebook.com/marvinvillafuertecanezo"
+                        target="_blank"
                     >
-                        <FaGooglePlusG />
-                    </Avatar>{" "}
-                    <Avatar
-                        style={{
-                            height: "60px",
-                            width: "60px",
-                            background: "#898988",
-                        }}
+                        <Avatar
+                            style={{
+                                height: "60px",
+                                width: "60px",
+                                background: "#898988",
+                            }}
+                        >
+                            <FaGooglePlusG />
+                        </Avatar>
+                    </a>
+
+                    <a
+                        href="https://www.facebook.com/marvinvillafuertecanezo"
+                        target="_blank"
                     >
-                        <FaInstagram />
-                    </Avatar>
+                        <Avatar
+                            style={{
+                                height: "60px",
+                                width: "60px",
+                                background: "#898988",
+                            }}
+                        >
+                            <FaInstagram />
+                        </Avatar>
+                    </a>
                 </Space>
+                <Container style={{ marginTop: "3em" }}>
+                    <Paper
+                        id="about"
+                        style={{
+                            height: "35vh",
+                            boxShadow: "0px 10px 15px 4px rgba(0, 0, 0, 0.1)",
+                            padding: "2em",
+                        }}
+                    >
+                        <Grid container spacing={4}>
+                            <Grid item xs={12} sm={6}>
+                                <Typography
+                                    variant="h5"
+                                    style={{ fontWeight: "bold" }}
+                                >
+                                    About
+                                </Typography>
+                                <Typography
+                                    variant="subtitle2"
+                                    // textAlign="justify"
+                                    className="mt-3"
+                                    style={{ letterSpacing: "0.5px" }}
+                                >
+                                    Hello! I am Anthony Barnett. Web Developer,
+                                    Graphic Designer and Photographer.
+                                </Typography>
+                                <Typography
+                                    variant="subtitle2"
+                                    className="mt-3"
+                                    textAlign="justify"
+                                    style={{ letterSpacing: "0.5px" }}
+                                >
+                                    Creative CV is a HTML resume template for
+                                    professionals. Built with Bootstrap 4, Now
+                                    UI Kit and FontAwesome, this modern and
+                                    responsive design template is perfect to
+                                    showcase your portfolio, skills and
+                                    experience.
+                                </Typography>
+                            </Grid>
+
+                            <Grid item xs={12} sm={6}>
+                                <Typography
+                                    variant="h5"
+                                    style={{ fontWeight: "bold" }}
+                                >
+                                    Basic Information
+                                </Typography>
+
+                                {[
+                                    "age",
+                                    "email",
+                                    "phone",
+                                    "address",
+                                    "language",
+                                ].map((item, idx) => (
+                                    <Grid
+                                        container
+                                        className={`mt-${
+                                            idx === 0 ? "3" : "2"
+                                        }`}
+                                        key={idx}
+                                    >
+                                        <Grid item xs={4}>
+                                            <Typography
+                                                variant="subtitle2"
+                                                style={{
+                                                    letterSpacing: "0.5px",
+                                                    fontWeight: "bold",
+                                                }}
+                                            >
+                                                {item.toUpperCase()}:
+                                            </Typography>
+                                        </Grid>
+
+                                        <Grid item xs={8}>
+                                            <Typography
+                                                variant="subtitle2"
+                                                style={{
+                                                    letterSpacing: "0.5px",
+                                                }}
+                                            >
+                                                {
+                                                    {
+                                                        age: 26,
+                                                        email: "marvincanezo2897@gmail.com",
+                                                        phone: "09100123456",
+                                                        address:
+                                                            "Libtong, Tiwi, Albay, Philippines",
+                                                        language:
+                                                            "Mandarin, English, Korean, Tagalog",
+                                                    }[item]
+                                                }
+                                            </Typography>
+                                        </Grid>
+                                    </Grid>
+                                ))}
+                            </Grid>
+                        </Grid>
+                    </Paper>
+
+                    <div style={{ marginTop: "7em" }} id="skills">
+                        <Typography
+                            variant="h5"
+                            textAlign="center"
+                            style={{ fontWeight: "bold" }}
+                        >
+                            Professional Skills
+                        </Typography>
+
+                        <Paper
+                            style={{
+                                height: "35vh",
+                                boxShadow:
+                                    "0px 10px 15px 4px rgba(0, 0, 0, 0.1)",
+                                padding: "2em",
+                                marginTop: "1.5em",
+                            }}
+                        >
+                            <Grid container spacing={4}>
+                                <Grid item xs={12} sm={6}>
+                                    <div>
+                                        <Space className="d-flex justify-content-between">
+                                            <Typography
+                                                variant="subtitle1"
+                                                style={{
+                                                    letterSpacing: "0.5px",
+                                                }}
+                                            >
+                                                REVIT
+                                            </Typography>
+                                            <Typography
+                                                variant="subtitle1"
+                                                style={{
+                                                    letterSpacing: "0.5px",
+                                                }}
+                                            >
+                                                90%
+                                            </Typography>
+                                        </Space>
+                                        <Progress
+                                            percent={90}
+                                            showInfo={false}
+                                            status="success"
+                                            strokeColor={"#378D3E"}
+                                        />
+                                    </div>
+                                    <div className="mt-2">
+                                        <Space className="d-flex justify-content-between">
+                                            <Typography
+                                                variant="subtitle1"
+                                                style={{
+                                                    letterSpacing: "0.5px",
+                                                }}
+                                            >
+                                                SKETCH UP
+                                            </Typography>
+                                            <Typography
+                                                variant="subtitle1"
+                                                style={{
+                                                    letterSpacing: "0.5px",
+                                                }}
+                                            >
+                                                85%
+                                            </Typography>
+                                        </Space>
+                                        <Progress
+                                            percent={85}
+                                            showInfo={false}
+                                            status="success"
+                                            strokeColor={"#378D3E"}
+                                        />
+                                    </div>
+                                    <div className="mt-2">
+                                        <Space className="d-flex justify-content-between">
+                                            <Typography
+                                                variant="subtitle1"
+                                                style={{
+                                                    letterSpacing: "0.5px",
+                                                }}
+                                            >
+                                                ENSCAPE
+                                            </Typography>
+                                            <Typography
+                                                variant="subtitle1"
+                                                style={{
+                                                    letterSpacing: "0.5px",
+                                                }}
+                                            >
+                                                85%
+                                            </Typography>
+                                        </Space>
+                                        <Progress
+                                            percent={85}
+                                            showInfo={false}
+                                            status="success"
+                                            strokeColor={"#378D3E"}
+                                        />
+                                    </div>
+                                </Grid>
+
+                                <Grid item xs={12} sm={6}>
+                                    <div>
+                                        <Space className="d-flex justify-content-between">
+                                            <Typography
+                                                variant="subtitle1"
+                                                style={{
+                                                    letterSpacing: "0.5px",
+                                                }}
+                                            >
+                                                LUMION
+                                            </Typography>
+                                            <Typography
+                                                variant="subtitle1"
+                                                style={{
+                                                    letterSpacing: "0.5px",
+                                                }}
+                                            >
+                                                80%
+                                            </Typography>
+                                        </Space>
+                                        <Progress
+                                            percent={80}
+                                            showInfo={false}
+                                            status="success"
+                                            strokeColor={"#378D3E"}
+                                        />
+                                    </div>
+                                    <div className="mt-2">
+                                        <Space className="d-flex justify-content-between">
+                                            <Typography
+                                                variant="subtitle1"
+                                                style={{
+                                                    letterSpacing: "0.5px",
+                                                }}
+                                            >
+                                                PHOTOSHOP
+                                            </Typography>
+                                            <Typography
+                                                variant="subtitle1"
+                                                style={{
+                                                    letterSpacing: "0.5px",
+                                                }}
+                                            >
+                                                80%
+                                            </Typography>
+                                        </Space>
+                                        <Progress
+                                            percent={80}
+                                            showInfo={false}
+                                            status="success"
+                                            strokeColor={"#378D3E"}
+                                        />
+                                    </div>
+                                    <div className="mt-2">
+                                        <Space className="d-flex justify-content-between">
+                                            <Typography
+                                                variant="subtitle1"
+                                                style={{
+                                                    letterSpacing: "0.5px",
+                                                }}
+                                            >
+                                                GRAPHIC DESIGN
+                                            </Typography>
+                                            <Typography
+                                                variant="subtitle1"
+                                                style={{
+                                                    letterSpacing: "0.5px",
+                                                }}
+                                            >
+                                                85%
+                                            </Typography>
+                                        </Space>
+                                        <Progress
+                                            percent={85}
+                                            showInfo={false}
+                                            status="success"
+                                            strokeColor={"#378D3E"}
+                                        />
+                                    </div>
+                                </Grid>
+                            </Grid>
+                        </Paper>
+                        <div id="portfolio" />
+                    </div>
+
+                    <div style={{ marginTop: "7em" }}>
+                        <Typography
+                            variant="h5"
+                            textAlign="center"
+                            style={{
+                                fontWeight: "bold",
+                                letterSpacing: "0.5px",
+                            }}
+                        >
+                            Portfolio
+                        </Typography>
+
+                        <Grid container spacing={3} className="mt-2">
+                            {itemData.map((item) => (
+                                <Grid item xs={12} sm={12} md={6}>
+                                    <ImageListItem key={item.img}>
+                                        <img
+                                            src={`${item.img}?w=248&fit=crop&auto=format`}
+                                            alt={item.title}
+                                            loading="lazy"
+                                            style={{
+                                                boxShadow:
+                                                    "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+                                                height: "100%",
+                                            }}
+                                        />
+                                        <ImageListItemBar
+                                            title={item.title}
+                                            subtitle={item.author}
+                                        />
+                                    </ImageListItem>
+                                </Grid>
+                            ))}
+                        </Grid>
+                    </div>
+                </Container>
             </Container>
         </div>
     );
