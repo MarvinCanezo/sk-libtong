@@ -1,0 +1,133 @@
+.main {
+    height: 74vh;
+    background-image: url("/nature2.JPG");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    // padding: 2em;
+}
+.appbar {
+    // background-color: #f0eff4;
+    background-color: transparent;
+    height: 13vh;
+    // background-color: transparent;
+    // background: #161620;
+}
+.banner {
+    margin-top: 6em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.bannerTitle {
+    color: #14141e;
+    font-size: 72px;
+    text-align: center;
+}
+.home-subtitle {
+    // color: #d1d1d2;
+    color: #14141e;
+    text-align: center;
+    font-size: 19px;
+    padding: 0 2em;
+    margin-top: 1.5em;
+}
+.signInBtn {
+    margin-top: 2em;
+    width: 230px;
+    // background-color: #d8f366;
+    background-color: #23ab73;
+    color: #fefefe !important;
+    font-size: 24px;
+    height: 56px;
+    border-radius: 10px;
+}
+.signInBtn:hover {
+    transform: scale(1.03);
+}
+.menu-item {
+    // color: #14141e;
+    color: #fefefe;
+    font-size: 16px;
+}
+.menu-item:hover,
+.theme-btn:hover {
+    // background-color: #5ba161 !important;
+    color: #fefefe !important;
+    // color: #23ab73 !important;
+    transform: scale(1.02);
+}
+.theme-btn {
+    color: #14141e;
+    font-size: 21px;
+    margin-top: -4px;
+}
+.logo {
+    height: 60px;
+    width: auto;
+}
+.theme-icon {
+    margin-top: -8px;
+}
+.diamond {
+    margin-top: -1.4em;
+    width: 32px;
+    height: auto;
+}
+.nfts {
+    margin-top: 4em;
+}
+.nft1 {
+    width: 220px;
+    height: "auto";
+    border-radius: 10px;
+}
+
+.nft2 {
+    width: 160px;
+    height: "auto";
+    margin-left: 2em;
+    border-radius: 10px;
+}
+
+.dark {
+    .menu-item {
+        color: #fefefe;
+    }
+    .theme-btn {
+        color: #fefefe;
+    }
+
+    .menu-item:hover,
+    .theme-btn:hover {
+        color: #d1eb63 !important;
+    }
+    // .theme-btn:hover,
+    .active-menu {
+        // color: #d1eb63 !important;
+        color: #363636 !important;
+        transform: scale(1.02);
+        background-color: #d1eb63;
+        padding-bottom: 1em;
+        font-size: 16px;
+        border-radius: 25px;
+        padding-left: 1.5em;
+        padding-right: 1.3em;
+        padding-bottom: 1.5em;
+    }
+    .active-menu:hover {
+        color: #363636 !important;
+    }
+    .bannerTitle {
+        color: #fefefe;
+        // color: #e0e0e0;
+    }
+    .home-subtitle {
+        color: #d1d1d2;
+    }
+    .signInBtn {
+        background-color: #d9f367;
+        color: #171720 !important;
+        border: none;
+    }
+}
