@@ -21,7 +21,7 @@ const navItems = ["about", "skills", "portfolio", "contact"];
 
 const itemData = [
     {
-        img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+        img: "/portfolio1.jpg",
         title: "Breakfast",
         author: "@bkristastucchio",
         rows: 2,
@@ -29,29 +29,45 @@ const itemData = [
         featured: true,
     },
     {
-        img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+        img: "/portfolio2.jpg",
         title: "Burger",
         author: "@rollelflex_graphy726",
     },
     {
-        img: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
+        img: "/portfolio3.jpg",
         title: "Camera",
         author: "@helloimnik",
     },
     {
-        img: "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c",
+        img: "/portfolio4.jpg",
         title: "Coffee",
         author: "@nolanissac",
         cols: 2,
     },
     {
-        img: "https://images.unsplash.com/photo-1533827432537-70133748f5c8",
+        img: "/portfolio5.jpg",
         title: "Hats",
         author: "@hjrc33",
         cols: 2,
     },
     {
-        img: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62",
+        img: "/portfolio6.jpg",
+        title: "Honey",
+        author: "@arwinneil",
+        rows: 2,
+        cols: 2,
+        featured: true,
+    },
+    {
+        img: "/portfolio7.jpg",
+        title: "Honey",
+        author: "@arwinneil",
+        rows: 2,
+        cols: 2,
+        featured: true,
+    },
+    {
+        img: "/portfolio8.jpg",
         title: "Honey",
         author: "@arwinneil",
         rows: 2,
@@ -285,7 +301,7 @@ export default function Appbar() {
                     <Paper
                         id="about"
                         style={{
-                            height: "35vh",
+                            minHeight: "35vh",
                             boxShadow: "0px 10px 15px 4px rgba(0, 0, 0, 0.1)",
                             padding: "2em",
                         }}
@@ -393,7 +409,7 @@ export default function Appbar() {
 
                         <Paper
                             style={{
-                                height: "35vh",
+                                minHeight: "35vh",
                                 boxShadow:
                                     "0px 10px 15px 4px rgba(0, 0, 0, 0.1)",
                                 padding: "2em",
@@ -593,10 +609,10 @@ export default function Appbar() {
                                                 height: "100%",
                                             }}
                                         />
-                                        <ImageListItemBar
+                                        {/* <ImageListItemBar
                                             title={item.title}
                                             subtitle={item.author}
-                                        />
+                                        /> */}
                                     </ImageListItem>
                                 </Grid>
                             ))}
