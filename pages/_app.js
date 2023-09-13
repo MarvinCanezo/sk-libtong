@@ -1,6 +1,5 @@
 import "antd/dist/reset.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "animate.css/animate.min.css";
 import { ThemeProvider } from "next-themes";
 import { StyledEngineProvider } from "@mui/material";
 import "../styles/global.scss";
