@@ -1,8 +1,5 @@
 import Head from "next/head";
-import Header from "@components/Header";
-import Footer from "@components/Footer";
-import { Container, Button } from "@mui/material";
-import Appbar from "sections/Header/Header";
+import Main from "sections/Main/Main";
 
 export default function Home() {
     return (
@@ -13,7 +10,7 @@ export default function Home() {
             </Head>
 
             <div>
-                <Appbar />
+                <Main />
             </div>
         </div>
     );
