@@ -1,28 +1,15 @@
-import Grid from "@mui/material/Grid";
-import { Button, Progress, Space } from "antd";
+import { Button, Image, Progress, Space } from "antd";
 import { useState, useEffect } from "react";
-import { MdLightMode, MdDarkMode } from "react-icons/md";
 import { useTheme } from "next-themes";
-import {
-    AppBar,
-    Avatar,
-    Box,
-    Container,
-    Paper,
-    Typography,
-} from "@mui/material";
-
-import ImageList from "@mui/material/ImageList";
-import ImageListItem from "@mui/material/ImageListItem";
+import Grid from "@mui/material/Grid";
+import AppBar from "@mui/material/AppBar";
+import Container from "@mui/material/Container";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
-import ListSubheader from "@mui/material/ListSubheader";
-import IconButton from "@mui/material/IconButton";
-import {
-    FaFacebookF,
-    FaTwitter,
-    FaGooglePlusG,
-    FaInstagram,
-} from "react-icons/fa";
+import Typography from "@mui/material/Typography";
+import Paper from "@mui/material/Paper";
+import Avatar from "@mui/material/Avatar";
+import ImageListItem from "@mui/material/ImageListItem";
+import { FaFacebookF, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 const navItems = ["about", "skills", "portfolio", "contact"];
 
@@ -92,66 +79,69 @@ export default function Appbar() {
 
     return (
         <div>
-            <AppBar position="fixed" elevation={0} className="appbar">
-                <Container className="h-100 d-flex align-items-center">
-                    <Grid container>
-                        <Grid
-                            item
-                            xs={6}
-                            sx={{
-                                display: {
-                                    xs: "none",
-                                    sm: "block",
-                                },
-                            }}
-                        >
-                            <a href="#home">
-                                <Typography
-                                    variant="h5"
-                                    style={{
-                                        color: "#fefefe",
-                                        fontSize: "16px",
-                                        letterSpacing: "2px",
-                                    }}
-                                >
-                                    CREATIVE CV
-                                </Typography>
-                                {/* <img
+            <div className="main">
+                <AppBar position="static" elevation={0} className="appbar">
+                    <Container className="h-100 d-flex align-items-center">
+                        <Grid container>
+                            <Grid
+                                item
+                                xs={6}
+                                sx={{
+                                    display: {
+                                        xs: "none",
+                                        sm: "block",
+                                    },
+                                }}
+                            >
+                                <a href="#home">
+                                    <Typography
+                                        variant="h5"
+                                        style={{
+                                            color: "#fefefe",
+                                            fontSize: "16px",
+                                            letterSpacing: "2px",
+                                        }}
+                                    >
+                                        CREATIVE CV
+                                    </Typography>
+                                    {/* <img
                                             alt="diamond"
                                             src="/images/bridge3.jpg"
                                             className="logo"
                                         /> */}
-                            </a>
-                        </Grid>
-                        <Grid
-                            item
-                            xs={12}
-                            sm={6}
-                            className="d-flex justify-content-end align-items-center"
-                        >
-                            {navItems.map((item, idx) => (
-                                <Button
-                                    key={idx}
-                                    type="link"
-                                    href={`#${item}`}
-                                    className={`menu-item ${
-                                        hash === `#${item}` && theme === "dark"
-                                            ? "active-menu"
-                                            : ""
-                                    }`}
-                                    style={
-                                        hash === `#${item}` && theme === "light"
-                                            ? {
-                                                  color: "#23ab73",
-                                                  fontWeight: 500,
-                                              }
-                                            : {}
-                                    }
-                                >
-                                    {item.toUpperCase()}
-                                </Button>
-                            ))}
-                            <Box
+                                </a>
+                            </Grid>
+                            <Grid
+                                item
+                                xs={12}
+                                sm={6}
+                                className="d-flex justify-content-end align-items-center"
+                            >
+                                {navItems.map((item, idx) => (
+                                    <Button
+                                        key={idx}
+                                        type="link"
+                                        href={`#${item}`}
+                                        className={`menu-item ${
+                                            hash === `#${item}` &&
+                                            theme === "dark"
+                                                ? "active-menu"
+                                                : ""
+                                        }`}
+                                        style={
+                                            hash === `#${item}` &&
+                                            theme === "light"
+                                                ? {
+                                                      color: "#23ab73",
+                                                      fontWeight: 500,
+                                                  }
+                                                : {}
+                                        }
+                                    >
+                                        {item.toUpperCase()}
+                                    </Button>
+                                ))}
+                                {/* <Box
                                 sx={{
                                     display: {
                                         xs: "none",
@@ -177,18 +167,16 @@ export default function Appbar() {
                                         <MdLightMode className="theme-icon" />
                                     )}
                                 </Button>
-                            </Box>
+                            </Box> */}
+                            </Grid>
                         </Grid>
-                    </Grid>
-                </Container>
-            </AppBar>
-
-            <div className="main">
+                    </Container>
+                </AppBar>
                 <div
-                    className="h-100 d-flex justify-content-center align-items-center"
+                    className="d-flex justify-content-center align-items-center"
                     id="home"
                 >
-                    <div className="d-flex justify-content-center flex-column align-items-center">
+                    <div className="d-flex justify-content-center flex-column align-items-center mt-2">
                         <Avatar
                             alt="Marvin Canezo"
                             src="/marvin.jpg"
@@ -238,19 +226,26 @@ export default function Appbar() {
                                 Hire Me
                             </Button>
 
-                            <Button
-                                size="large"
-                                style={{
-                                    background: "#378D3E",
-                                    color: "#fefefe",
-                                    border: "none",
-                                    borderRadius: "5px",
-                                    width: "170px",
-                                    fontSize: "14px",
-                                }}
+                            <a
+                                href="/cv.pdf"
+                                download="Marvin_Canezo_CV"
+                                target="_blank"
+                                rel="noopener noreferrer"
                             >
-                                Download CV
-                            </Button>
+                                <Button
+                                    size="large"
+                                    style={{
+                                        background: "#378D3E",
+                                        color: "#fefefe",
+                                        border: "none",
+                                        borderRadius: "5px",
+                                        width: "170px",
+                                        fontSize: "14px",
+                                    }}
+                                >
+                                    Download CV
+                                </Button>
+                            </a>
                         </Space>
                     </div>
                 </div>
@@ -278,8 +273,9 @@ export default function Appbar() {
                             <FaFacebookF />
                         </Avatar>
                     </a>
+
                     <a
-                        href="https://www.instagram.com/ar_nivram/"
+                        href="https://www.linkedin.com/in/marvin-canezo-67143028b/"
                         target="_blank"
                     >
                         <Avatar
@@ -289,26 +285,12 @@ export default function Appbar() {
                                 background: "#898988",
                             }}
                         >
-                            <FaTwitter />
-                        </Avatar>
-                    </a>
-                    <a
-                        href="https://www.facebook.com/marvinvillafuertecanezo"
-                        target="_blank"
-                    >
-                        <Avatar
-                            style={{
-                                height: "60px",
-                                width: "60px",
-                                background: "#898988",
-                            }}
-                        >
-                            <FaGooglePlusG />
+                            <FaLinkedin />
                         </Avatar>
                     </a>
 
                     <a
-                        href="https://www.facebook.com/marvinvillafuertecanezo"
+                        href="https://www.instagram.com/ar_nivram/"
                         target="_blank"
                     >
                         <Avatar
@@ -623,10 +605,21 @@ export default function Appbar() {
                         </Typography>
 
                         <Grid container spacing={3} className="mt-2">
-                            {itemData.map((item) => (
-                                <Grid item xs={12} sm={12} md={6}>
+                            {itemData.map((item, idx) => (
+                                <Grid item xs={12} sm={12} md={6} key={idx}>
                                     <ImageListItem key={item.img}>
-                                        <img
+                                        <Image
+                                            alt={item.title}
+                                            // src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+
+                                            src={`${item.img}?w=248&fit=crop&auto=format`}
+                                            style={{
+                                                boxShadow:
+                                                    "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+                                                height: "100%",
+                                            }}
+                                        />
+                                        {/* <img
                                             src={`${item.img}?w=248&fit=crop&auto=format`}
                                             alt={item.title}
                                             loading="lazy"
@@ -635,18 +628,467 @@ export default function Appbar() {
                                                     "rgba(0, 0, 0, 0.35) 0px 5px 15px",
                                                 height: "100%",
                                             }}
-                                        />
-                                        {/* <ImageListItemBar
+                                        /> */}
+                                        <ImageListItemBar
                                             title={item.title}
                                             subtitle={item.author}
-                                        /> */}
+                                        />
                                     </ImageListItem>
                                 </Grid>
                             ))}
                         </Grid>
                     </div>
+
+                    <div style={{ marginTop: "10em" }}>
+                        <Typography
+                            variant="h5"
+                            textAlign="center"
+                            style={{
+                                fontWeight: "bold",
+                                letterSpacing: "0.5px",
+                            }}
+                        >
+                            Work Experience
+                        </Typography>
+
+                        <Grid
+                            container
+                            className="mt-4"
+                            style={{
+                                boxShadow:
+                                    "0px 10px 15px 4px rgba(0, 0, 0, 0.1)",
+                            }}
+                        >
+                            <Grid item xs={12} md={3}>
+                                <div
+                                    style={{
+                                        height: "30vh",
+                                        padding: "2em",
+                                        background: "#378D3E",
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        flexDirection: "column",
+                                    }}
+                                >
+                                    <Typography
+                                        variant="subtitle2"
+                                        style={{
+                                            letterSpacing: "0.5px",
+                                            color: "#fefefe",
+                                        }}
+                                    >
+                                        JULY 2020 - JUNE 2022
+                                    </Typography>
+
+                                    <div>
+                                        <Typography
+                                            variant="h5"
+                                            style={{
+                                                color: "#fefefe",
+                                                letterSpacing: "0.5px",
+                                                marginTop: "0.5em",
+                                            }}
+                                        >
+                                            CCLC Builders
+                                        </Typography>
+                                    </div>
+                                </div>
+                            </Grid>
+                            <Grid item xs={12} md={9}>
+                                <div
+                                    style={{
+                                        height: "30vh",
+                                        padding: "2em",
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "start",
+                                        flexDirection: "column",
+                                    }}
+                                >
+                                    <Typography
+                                        variant="h5"
+                                        style={{
+                                            letterSpacing: "0.5px",
+                                            marginTop: "0.5em",
+                                            color: "#424242",
+                                        }}
+                                    >
+                                        Junior Architect
+                                    </Typography>
+                                    <div className="mt-2">
+                                        <Typography
+                                            variant="subtitle2"
+                                            style={{
+                                                letterSpacing: "0.5px",
+                                                color: "#616161",
+                                            }}
+                                        >
+                                            Designed and generated construction
+                                            drawings and illustrations, ensuring
+                                            that the client's needs and goals
+                                            were fully met. Prepared and
+                                            maintained various architectural
+                                            documents, reviewed construction
+                                            plans, and monitored the onsite
+                                            workmanship; developed 3D models.
+                                            Pro-actively participated in weekly
+                                            team meetings and contributed to
+                                            idea generation. Worked closely with
+                                            expeditors, structural engineers,
+                                            and general contractors. Conducted
+                                            market research and stayed
+                                            up-to-date with current trends.
+                                        </Typography>
+                                    </div>
+                                </div>
+                            </Grid>
+                        </Grid>
+
+                        <Grid
+                            container
+                            className="mt-4"
+                            style={{
+                                boxShadow:
+                                    "0px 10px 15px 4px rgba(0, 0, 0, 0.1)",
+                            }}
+                        >
+                            <Grid item xs={12} md={3}>
+                                <div
+                                    style={{
+                                        height: "30vh",
+                                        padding: "2em",
+                                        background: "#378D3E",
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        flexDirection: "column",
+                                    }}
+                                >
+                                    <div>
+                                        <Typography
+                                            variant="h5"
+                                            textAlign="center"
+                                            style={{
+                                                color: "#fefefe",
+                                                letterSpacing: "0.5px",
+                                                marginTop: "0.5em",
+                                            }}
+                                        >
+                                            Freelance Architect
+                                        </Typography>
+                                    </div>
+                                </div>
+                            </Grid>
+                            <Grid item xs={12} md={9}>
+                                <div
+                                    style={{
+                                        height: "30vh",
+                                        padding: "2em",
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "start",
+                                        flexDirection: "column",
+                                    }}
+                                >
+                                    <Typography
+                                        variant="h5"
+                                        style={{
+                                            letterSpacing: "0.5px",
+                                            marginTop: "0.5em",
+                                            color: "#424242",
+                                        }}
+                                    >
+                                        Junior Architect
+                                    </Typography>
+                                    <div className="mt-2">
+                                        <Typography
+                                            variant="subtitle2"
+                                            style={{
+                                                letterSpacing: "0.5px",
+                                                color: "#616161",
+                                            }}
+                                        >
+                                            Designed and generated construction
+                                            drawings and illustrations, ensuring
+                                            that the client's needs and goals
+                                            were fully met. Prepared and
+                                            maintained various architectural
+                                            documents, reviewed construction
+                                            plans, and monitored the onsite
+                                            workmanship; developed 3D models.
+                                            Pro-actively participated in weekly
+                                            team meetings and contributed to
+                                            idea generation. Worked closely with
+                                            expeditors, structural engineers,
+                                            and general contractors. Conducted
+                                            market research and stayed
+                                            up-to-date with current trends.
+                                        </Typography>
+                                    </div>
+                                </div>
+                            </Grid>
+                        </Grid>
+                    </div>
+
+                    <div style={{ marginTop: "8em" }}>
+                        <Typography
+                            variant="h5"
+                            textAlign="center"
+                            style={{
+                                fontWeight: "bold",
+                                letterSpacing: "0.5px",
+                            }}
+                        >
+                            Education
+                        </Typography>
+
+                        <Grid
+                            container
+                            className="mt-4"
+                            style={{
+                                boxShadow:
+                                    "0px 10px 15px 4px rgba(0, 0, 0, 0.1)",
+                            }}
+                        >
+                            <Grid item xs={12} md={3}>
+                                <div
+                                    style={{
+                                        height: "25vh",
+                                        padding: "2em",
+                                        background: "#378D3E",
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        flexDirection: "column",
+                                    }}
+                                >
+                                    <Typography
+                                        variant="subtitle2"
+                                        style={{
+                                            letterSpacing: "0.5px",
+                                            color: "#fefefe",
+                                        }}
+                                    >
+                                        2014 - 2020
+                                    </Typography>
+
+                                    <div>
+                                        <Typography
+                                            variant="h5"
+                                            style={{
+                                                color: "#fefefe",
+                                                letterSpacing: "0.5px",
+                                                marginTop: "0.5em",
+                                            }}
+                                        >
+                                            Bachelors Degree
+                                        </Typography>
+                                    </div>
+                                </div>
+                            </Grid>
+                            <Grid item xs={12} md={9}>
+                                <div
+                                    style={{
+                                        height: "25vh",
+                                        padding: "2em",
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "start",
+                                        flexDirection: "column",
+                                    }}
+                                >
+                                    <div>
+                                        <Typography
+                                            variant="h5"
+                                            style={{
+                                                letterSpacing: "0.5px",
+                                                marginTop: "0.5em",
+                                                color: "#424242",
+                                            }}
+                                        >
+                                            Bachelor of Science in Architecture
+                                        </Typography>
+
+                                        <Typography
+                                            variant="subtitle1"
+                                            style={{
+                                                letterSpacing: "0.5px",
+                                                color: "#616161",
+                                            }}
+                                        >
+                                            Bicol University
+                                        </Typography>
+                                    </div>
+                                </div>
+                            </Grid>
+                        </Grid>
+
+                        <Grid
+                            container
+                            className="mt-4"
+                            style={{
+                                boxShadow:
+                                    "0px 10px 15px 4px rgba(0, 0, 0, 0.1)",
+                            }}
+                        >
+                            <Grid item xs={12} md={3}>
+                                <div
+                                    style={{
+                                        height: "25vh",
+                                        padding: "2em",
+                                        background: "#378D3E",
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        flexDirection: "column",
+                                    }}
+                                >
+                                    <Typography
+                                        variant="subtitle2"
+                                        style={{
+                                            letterSpacing: "0.5px",
+                                            color: "#fefefe",
+                                        }}
+                                    >
+                                        2014 - 2020
+                                    </Typography>
+
+                                    <div>
+                                        <Typography
+                                            variant="h5"
+                                            style={{
+                                                color: "#fefefe",
+                                                letterSpacing: "0.5px",
+                                                marginTop: "0.5em",
+                                            }}
+                                        >
+                                            High School
+                                        </Typography>
+                                    </div>
+                                </div>
+                            </Grid>
+                            <Grid item xs={12} md={9}>
+                                <div
+                                    style={{
+                                        height: "25vh",
+                                        padding: "2em",
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "start",
+                                        flexDirection: "column",
+                                    }}
+                                >
+                                    <div>
+                                        <Typography
+                                            variant="h5"
+                                            style={{
+                                                letterSpacing: "0.5px",
+                                                marginTop: "0.5em",
+                                                color: "#424242",
+                                            }}
+                                        >
+                                            Major in Computer Hardware Servicing
+                                        </Typography>
+
+                                        <Typography
+                                            variant="subtitle1"
+                                            style={{
+                                                letterSpacing: "0.5px",
+                                                color: "#616161",
+                                            }}
+                                        >
+                                            Tiwi Agro-Industrial School
+                                        </Typography>
+                                    </div>
+                                </div>
+                            </Grid>
+                        </Grid>
+                    </div>
                 </Container>
             </Container>
+
+            <div className="contact">
+                <Container maxWidth="sm">
+                    <Paper
+                        style={{
+                            height: "50vh",
+                            padding: "2em",
+                            // display: "flex",
+                            // justifyContent: "center",
+                        }}
+                    >
+                        <Typography
+                            variant="h5"
+                            style={{ fontWeight: "bold", textAlign: "center" }}
+                        >
+                            Contact Me
+                        </Typography>
+                        <div className="mt-4">
+                            <Typography
+                                variant="subtitle2"
+                                style={{
+                                    letterSpacing: "0.5px",
+                                    fontWeight: "bold",
+                                }}
+                            >
+                                Address:
+                            </Typography>
+                            <Typography
+                                variant="subtitle2"
+                                style={{
+                                    letterSpacing: "0.5px",
+                                    color: "#616161",
+                                }}
+                            >
+                                Libtong, Tiwi, Albay, Philippines
+                            </Typography>
+                        </div>
+
+                        <div className="mt-4">
+                            <Typography
+                                variant="subtitle2"
+                                style={{
+                                    letterSpacing: "0.5px",
+                                    fontWeight: "bold",
+                                }}
+                            >
+                                Phone:
+                            </Typography>
+                            <Typography
+                                variant="subtitle2"
+                                style={{
+                                    letterSpacing: "0.5px",
+                                    color: "#616161",
+                                }}
+                            >
+                                +63-9100193231
+                            </Typography>
+                        </div>
+                        <div className="mt-4">
+                            <Typography
+                                variant="subtitle2"
+                                style={{
+                                    letterSpacing: "0.5px",
+                                    fontWeight: "bold",
+                                }}
+                            >
+                                Email:
+                            </Typography>
+                            <Typography
+                                variant="subtitle2"
+                                style={{
+                                    letterSpacing: "0.5px",
+                                    color: "#616161",
+                                }}
+                            >
+                                marvincanezo2897@gmail.com
+                            </Typography>
+                        </div>
+                    </Paper>
+                </Container>
+            </div>
+            <div style={{ height: "10vh" }}></div>
         </div>
     );
 }

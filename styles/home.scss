@@ -89,7 +89,18 @@
     margin-left: 2em;
     border-radius: 10px;
 }
-
+.contact {
+    height: 74vh;
+    background-image: url("/staticmap.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // padding: 2em;
+}
 .dark {
     .menu-item {
         color: #fefefe;
