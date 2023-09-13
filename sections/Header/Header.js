@@ -1,6 +1,7 @@
-import { Button, Image, Progress, Space } from "antd";
+import { Button, Image, Progress, Space, FloatButton } from "antd";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
+import { FaFacebookF, FaInstagram, FaLinkedin } from "react-icons/fa";
 import Grid from "@mui/material/Grid";
 import AppBar from "@mui/material/AppBar";
 import Container from "@mui/material/Container";
@@ -9,9 +10,18 @@ import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import Avatar from "@mui/material/Avatar";
 import ImageListItem from "@mui/material/ImageListItem";
-import { FaFacebookF, FaInstagram, FaLinkedin } from "react-icons/fa";
+import ScrollAnimation from "react-animate-on-scroll";
+import Fade from "react-reveal/Fade";
+import { Zoom } from "react-reveal";
 
-const navItems = ["about", "skills", "portfolio", "contact"];
+const navItems = [
+    "about",
+    "skills",
+    "portfolio",
+    "experience",
+    "education",
+    "contact",
+];
 
 const itemData = [
     {
@@ -93,23 +103,20 @@ export default function Appbar() {
                                     },
                                 }}
                             >
-                                <a href="#home">
-                                    <Typography
-                                        variant="h5"
-                                        style={{
-                                            color: "#fefefe",
-                                            fontSize: "16px",
-                                            letterSpacing: "2px",
-                                        }}
-                                    >
-                                        CREATIVE CV
-                                    </Typography>
-                                    {/* <img
-                                            alt="diamond"
-                                            src="/images/bridge3.jpg"
-                                            className="logo"
-                                        /> */}
-                                </a>
+                                <Fade bottom delay={300}>
+                                    <a href="#home">
+                                        <Typography
+                                            variant="h5"
+                                            style={{
+                                                color: "#fefefe",
+                                                fontSize: "16px",
+                                                letterSpacing: "2px",
+                                            }}
+                                        >
+                                            CREATIVE CV
+                                        </Typography>
+                                    </a>
+                                </Fade>
                             </Grid>
                             <Grid
                                 item
@@ -118,56 +125,31 @@ export default function Appbar() {
                                 className="d-flex justify-content-end align-items-center"
                             >
                                 {navItems.map((item, idx) => (
-                                    <Button
-                                        key={idx}
-                                        type="link"
-                                        href={`#${item}`}
-                                        className={`menu-item ${
-                                            hash === `#${item}` &&
-                                            theme === "dark"
-                                                ? "active-menu"
-                                                : ""
-                                        }`}
-                                        style={
-                                            hash === `#${item}` &&
-                                            theme === "light"
-                                                ? {
-                                                      color: "#23ab73",
-                                                      fontWeight: 500,
-                                                  }
-                                                : {}
-                                        }
-                                    >
-                                        {item.toUpperCase()}
-                                    </Button>
+                                    <Fade bottom delay={700}>
+                                        <Button
+                                            key={idx}
+                                            type="link"
+                                            href={`#${item}`}
+                                            className={`menu-item ${
+                                                hash === `#${item}` &&
+                                                theme === "dark"
+                                                    ? "active-menu"
+                                                    : ""
+                                            }`}
+                                            style={
+                                                hash === `#${item}` &&
+                                                theme === "light"
+                                                    ? {
+                                                          color: "#23ab73",
+                                                          fontWeight: 500,
+                                                      }
+                                                    : {}
+                                            }
+                                        >
+                                            {item.toUpperCase()}
+                                        </Button>
+                                    </Fade>
                                 ))}
-                                {/* <Box
-                                sx={{
-                                    display: {
-                                        xs: "none",
-                                        sm: "block",
-                                    },
-                                }}
-                            >
-                                <Button
-                                    type="link"
-                                    className="theme-btn"
-
-                                    // onClick={() =>
-                                    //     setTheme(
-                                    //         theme === "light"
-                                    //             ? "dark"
-                                    //             : "light"
-                                    //     )
-                                    // }
-                                >
-                                    {theme === "light" ? (
-                                        <MdDarkMode className="theme-icon" />
-                                    ) : (
-                                        <MdLightMode className="theme-icon" />
-                                    )}
-                                </Button>
-                            </Box> */}
                             </Grid>
                         </Grid>
                     </Container>
@@ -176,62 +158,49 @@ export default function Appbar() {
                     className="d-flex justify-content-center align-items-center"
                     id="home"
                 >
-                    <div className="d-flex justify-content-center flex-column align-items-center mt-2">
-                        <Avatar
-                            alt="Marvin Canezo"
-                            src="/marvin.jpg"
-                            style={{
-                                height: "160px",
-                                width: "160px",
-                                boxShadow:
-                                    "0px 100px 15px -3px rgba(0, 0, 0, 0.1)",
-                            }}
-                        />
-                        <Typography
-                            style={{
-                                color: "#fefefe",
-                                fontSize: "40px",
-                                fontWeight: "bold",
-                                marginTop: "0.5em",
-                                letterSpacing: "3px",
-                            }}
-                            variant="h2"
-                        >
-                            Marvin Cañezo
-                        </Typography>
+                    <div className="d-flex justify-content-center flex-column align-items-center mt-4">
+                        <Zoom>
+                            <Avatar
+                                alt="Marvin Canezo"
+                                src="/marvin.jpg"
+                                style={{
+                                    height: "160px",
+                                    width: "160px",
+                                    boxShadow:
+                                        "0px 100px 15px -3px rgba(0, 0, 0, 0.1)",
+                                }}
+                            />
+                        </Zoom>
+                        <Fade bottom delay={300}>
+                            <Typography
+                                style={{
+                                    color: "#fefefe",
+                                    fontSize: "40px",
+                                    fontWeight: "bold",
+                                    marginTop: "0.5em",
+                                    letterSpacing: "3px",
+                                }}
+                                variant="h2"
+                            >
+                                Marvin Cañezo
+                            </Typography>
+                        </Fade>
 
-                        <Typography
-                            style={{
-                                color: "#e0e0e0",
-                                fontSize: "16px",
-                                letterSpacing: "1px",
-                            }}
-                            variant="h2"
-                        >
-                            JUNIOR ARCHITECT
-                        </Typography>
+                        <Fade bottom delay={300}>
+                            <Typography
+                                style={{
+                                    color: "#e0e0e0",
+                                    fontSize: "16px",
+                                    letterSpacing: "1px",
+                                }}
+                                variant="h2"
+                            >
+                                JUNIOR ARCHITECT
+                            </Typography>
+                        </Fade>
 
                         <Space className="mt-4" size={20}>
-                            <Button
-                                size="large"
-                                style={{
-                                    background: "#378D3E",
-                                    color: "#fefefe",
-                                    border: "none",
-                                    borderRadius: "5px",
-                                    width: "170px",
-                                    fontSize: "14px",
-                                }}
-                            >
-                                Hire Me
-                            </Button>
-
-                            <a
-                                href="/cv.pdf"
-                                download="Marvin_Canezo_CV"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
+                            <Fade bottom delay={400}>
                                 <Button
                                     size="large"
                                     style={{
@@ -243,9 +212,31 @@ export default function Appbar() {
                                         fontSize: "14px",
                                     }}
                                 >
-                                    Download CV
+                                    Hire Me
                                 </Button>
-                            </a>
+                            </Fade>{" "}
+                            <Fade bottom delay={500}>
+                                <a
+                                    href="/cv.pdf"
+                                    download="Marvin_Canezo_CV"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <Button
+                                        size="large"
+                                        style={{
+                                            background: "#378D3E",
+                                            color: "#fefefe",
+                                            border: "none",
+                                            borderRadius: "5px",
+                                            width: "170px",
+                                            fontSize: "14px",
+                                        }}
+                                    >
+                                        Download CV
+                                    </Button>
+                                </a>
+                            </Fade>
                         </Space>
                     </div>
                 </div>
@@ -253,168 +244,178 @@ export default function Appbar() {
 
             <Container
                 style={{
-                    // minHeight: "100vh",
                     paddingBottom: "5em",
                     marginTop: "-2em",
                 }}
             >
                 <Space className="d-flex justify-content-center" size={15}>
-                    <a
-                        href="https://www.facebook.com/marvinvillafuertecanezo"
-                        target="_blank"
-                    >
-                        <Avatar
-                            style={{
-                                height: "60px",
-                                width: "60px",
-                                background: "#898988",
-                            }}
+                    <Zoom delay={400}>
+                        <a
+                            href="https://www.facebook.com/marvinvillafuertecanezo"
+                            target="_blank"
                         >
-                            <FaFacebookF />
-                        </Avatar>
-                    </a>
+                            <Avatar
+                                style={{
+                                    height: "60px",
+                                    width: "60px",
+                                    background: "#898988",
+                                }}
+                            >
+                                <FaFacebookF />
+                            </Avatar>
+                        </a>
+                    </Zoom>
 
-                    <a
-                        href="https://www.linkedin.com/in/marvin-canezo-67143028b/"
-                        target="_blank"
-                    >
-                        <Avatar
-                            style={{
-                                height: "60px",
-                                width: "60px",
-                                background: "#898988",
-                            }}
+                    <Zoom delay={500}>
+                        <a
+                            href="https://www.linkedin.com/in/marvin-canezo-67143028b/"
+                            target="_blank"
                         >
-                            <FaLinkedin />
-                        </Avatar>
-                    </a>
-
-                    <a
-                        href="https://www.instagram.com/ar_nivram/"
-                        target="_blank"
-                    >
-                        <Avatar
-                            style={{
-                                height: "60px",
-                                width: "60px",
-                                background: "#898988",
-                            }}
+                            <Avatar
+                                style={{
+                                    height: "60px",
+                                    width: "60px",
+                                    background: "#898988",
+                                }}
+                            >
+                                <FaLinkedin />
+                            </Avatar>
+                        </a>
+                    </Zoom>
+                    <Zoom delay={600}>
+                        <a
+                            href="https://www.instagram.com/ar_nivram/"
+                            target="_blank"
                         >
-                            <FaInstagram />
-                        </Avatar>
-                    </a>
+                            <Avatar
+                                style={{
+                                    height: "60px",
+                                    width: "60px",
+                                    background: "#898988",
+                                }}
+                            >
+                                <FaInstagram />
+                            </Avatar>
+                        </a>
+                    </Zoom>
                 </Space>
                 <Container style={{ marginTop: "3em" }}>
-                    <Paper
-                        id="about"
-                        style={{
-                            minHeight: "35vh",
-                            boxShadow: "0px 10px 15px 4px rgba(0, 0, 0, 0.1)",
-                            padding: "2em",
-                        }}
-                    >
-                        <Grid container spacing={4}>
-                            <Grid item xs={12} sm={6}>
-                                <Typography
-                                    variant="h5"
-                                    style={{ fontWeight: "bold" }}
-                                >
-                                    About
-                                </Typography>
-                                <Typography
-                                    variant="subtitle2"
-                                    textAlign="justify"
-                                    className="mt-3"
-                                    style={{ letterSpacing: "0.5px" }}
-                                >
-                                    Hello! I am Marvin Canezo. A competent
-                                    Architectural Designer offering a wealth of
-                                    experience in Project Management, Revit
-                                    modeling, graphic presentations and
-                                    sustainable strategies.
-                                </Typography>
-                                <Typography
-                                    variant="subtitle2"
-                                    className="mt-3"
-                                    textAlign="justify"
-                                    style={{ letterSpacing: "0.5px" }}
-                                >
-                                    Detail-oriented and certified Junior
-                                    Architect who excels at developing
-                                    construction drawings, generating 3D models,
-                                    monitoring the onsite workmanship, and
-                                    conducting market research.
-                                </Typography>
-                            </Grid>
-
-                            <Grid item xs={12} sm={6}>
-                                <Typography
-                                    variant="h5"
-                                    style={{ fontWeight: "bold" }}
-                                >
-                                    Basic Information
-                                </Typography>
-
-                                {[
-                                    "age",
-                                    "email",
-                                    "phone",
-                                    "address",
-                                    "language",
-                                ].map((item, idx) => (
-                                    <Grid
-                                        container
-                                        className={`mt-${
-                                            idx === 0 ? "3" : "2"
-                                        }`}
-                                        key={idx}
+                    <Fade bottom delay={300}>
+                        <Paper
+                            id="about"
+                            style={{
+                                minHeight: "35vh",
+                                boxShadow:
+                                    "0px 10px 15px 4px rgba(0, 0, 0, 0.1)",
+                                padding: "2em",
+                            }}
+                        >
+                            <Grid container spacing={4}>
+                                <Grid item xs={12} sm={6}>
+                                    <Typography
+                                        variant="h5"
+                                        style={{ fontWeight: "bold" }}
                                     >
-                                        <Grid item xs={4}>
-                                            <Typography
-                                                variant="subtitle2"
-                                                style={{
-                                                    letterSpacing: "0.5px",
-                                                    fontWeight: "bold",
-                                                }}
-                                            >
-                                                {item.toUpperCase()}:
-                                            </Typography>
-                                        </Grid>
+                                        About
+                                    </Typography>
+                                    <Typography
+                                        variant="subtitle2"
+                                        textAlign="justify"
+                                        className="mt-3"
+                                        style={{ letterSpacing: "0.5px" }}
+                                    >
+                                        Hello! I am Marvin Canezo. A competent
+                                        Architectural Designer offering a wealth
+                                        of experience in Project Management,
+                                        Revit modeling, graphic presentations
+                                        and sustainable strategies.
+                                    </Typography>
+                                    <Typography
+                                        variant="subtitle2"
+                                        className="mt-3"
+                                        textAlign="justify"
+                                        style={{ letterSpacing: "0.5px" }}
+                                    >
+                                        Detail-oriented and certified Junior
+                                        Architect who excels at developing
+                                        construction drawings, generating 3D
+                                        models, monitoring the onsite
+                                        workmanship, and conducting market
+                                        research.
+                                    </Typography>
+                                </Grid>
 
-                                        <Grid item xs={8}>
-                                            <Typography
-                                                variant="subtitle2"
-                                                style={{
-                                                    letterSpacing: "0.5px",
-                                                }}
-                                            >
-                                                {
+                                <Grid item xs={12} sm={6}>
+                                    <Typography
+                                        variant="h5"
+                                        style={{ fontWeight: "bold" }}
+                                    >
+                                        Basic Information
+                                    </Typography>
+
+                                    {[
+                                        "age",
+                                        "email",
+                                        "phone",
+                                        "address",
+                                        "language",
+                                    ].map((item, idx) => (
+                                        <Grid
+                                            container
+                                            className={`mt-${
+                                                idx === 0 ? "3" : "2"
+                                            }`}
+                                            key={idx}
+                                        >
+                                            <Grid item xs={4}>
+                                                <Typography
+                                                    variant="subtitle2"
+                                                    style={{
+                                                        letterSpacing: "0.5px",
+                                                        fontWeight: "bold",
+                                                    }}
+                                                >
+                                                    {item.toUpperCase()}:
+                                                </Typography>
+                                            </Grid>
+
+                                            <Grid item xs={8}>
+                                                <Typography
+                                                    variant="subtitle2"
+                                                    style={{
+                                                        letterSpacing: "0.5px",
+                                                    }}
+                                                >
                                                     {
-                                                        age: 26,
-                                                        email: "marvincanezo2897@gmail.com",
-                                                        phone: "09100123456",
-                                                        address:
-                                                            "Libtong, Tiwi, Albay, Philippines",
-                                                        language:
-                                                            "Mandarin, English, Korean, Tagalog",
-                                                    }[item]
-                                                }
-                                            </Typography>
+                                                        {
+                                                            age: 26,
+                                                            email: "marvincanezo2897@gmail.com",
+                                                            phone: "09100123456",
+                                                            address:
+                                                                "Libtong, Tiwi, Albay, Philippines",
+                                                            language:
+                                                                "Mandarin, English, Korean, Tagalog",
+                                                        }[item]
+                                                    }
+                                                </Typography>
+                                            </Grid>
                                         </Grid>
-                                    </Grid>
-                                ))}
+                                    ))}
+                                </Grid>
                             </Grid>
-                        </Grid>
-                    </Paper>
+                        </Paper>
+                    </Fade>
 
                     <div style={{ marginTop: "7em" }} id="skills">
-                        <Typography
-                            variant="h5"
-                            textAlign="center"
-                            style={{ fontWeight: "bold" }}
-                        >
-                            Professional Skills
-                        </Typography>
+                        <Fade bottom delay={300}>
+                            <Typography
+                                variant="h5"
+                                textAlign="center"
+                                style={{ fontWeight: "bold" }}
+                            >
+                                Professional Skills
+                            </Typography>
+                        </Fade>
 
                         <Paper
                             style={{
@@ -427,165 +428,181 @@ export default function Appbar() {
                         >
                             <Grid container spacing={4}>
                                 <Grid item xs={12} sm={6}>
-                                    <div>
-                                        <Space className="d-flex justify-content-between">
-                                            <Typography
-                                                variant="subtitle1"
-                                                style={{
-                                                    letterSpacing: "0.5px",
-                                                }}
-                                            >
-                                                REVIT
-                                            </Typography>
-                                            <Typography
-                                                variant="subtitle1"
-                                                style={{
-                                                    letterSpacing: "0.5px",
-                                                }}
-                                            >
-                                                90%
-                                            </Typography>
-                                        </Space>
-                                        <Progress
-                                            percent={90}
-                                            showInfo={false}
-                                            status="success"
-                                            strokeColor={"#378D3E"}
-                                        />
-                                    </div>
-                                    <div className="mt-2">
-                                        <Space className="d-flex justify-content-between">
-                                            <Typography
-                                                variant="subtitle1"
-                                                style={{
-                                                    letterSpacing: "0.5px",
-                                                }}
-                                            >
-                                                SKETCH UP
-                                            </Typography>
-                                            <Typography
-                                                variant="subtitle1"
-                                                style={{
-                                                    letterSpacing: "0.5px",
-                                                }}
-                                            >
-                                                85%
-                                            </Typography>
-                                        </Space>
-                                        <Progress
-                                            percent={85}
-                                            showInfo={false}
-                                            status="success"
-                                            strokeColor={"#378D3E"}
-                                        />
-                                    </div>
-                                    <div className="mt-2">
-                                        <Space className="d-flex justify-content-between">
-                                            <Typography
-                                                variant="subtitle1"
-                                                style={{
-                                                    letterSpacing: "0.5px",
-                                                }}
-                                            >
-                                                ENSCAPE
-                                            </Typography>
-                                            <Typography
-                                                variant="subtitle1"
-                                                style={{
-                                                    letterSpacing: "0.5px",
-                                                }}
-                                            >
-                                                85%
-                                            </Typography>
-                                        </Space>
-                                        <Progress
-                                            percent={85}
-                                            showInfo={false}
-                                            status="success"
-                                            strokeColor={"#378D3E"}
-                                        />
-                                    </div>
+                                    <Fade bottom delay={500}>
+                                        <div>
+                                            <Space className="d-flex justify-content-between">
+                                                <Typography
+                                                    variant="subtitle1"
+                                                    style={{
+                                                        letterSpacing: "0.5px",
+                                                    }}
+                                                >
+                                                    REVIT
+                                                </Typography>
+                                                <Typography
+                                                    variant="subtitle1"
+                                                    style={{
+                                                        letterSpacing: "0.5px",
+                                                    }}
+                                                >
+                                                    90%
+                                                </Typography>
+                                            </Space>
+                                            <Progress
+                                                percent={90}
+                                                showInfo={false}
+                                                status="success"
+                                                strokeColor={"#378D3E"}
+                                            />
+                                        </div>
+                                    </Fade>
+
+                                    <Fade bottom delay={600}>
+                                        <div className="mt-2">
+                                            <Space className="d-flex justify-content-between">
+                                                <Typography
+                                                    variant="subtitle1"
+                                                    style={{
+                                                        letterSpacing: "0.5px",
+                                                    }}
+                                                >
+                                                    SKETCH UP
+                                                </Typography>
+                                                <Typography
+                                                    variant="subtitle1"
+                                                    style={{
+                                                        letterSpacing: "0.5px",
+                                                    }}
+                                                >
+                                                    85%
+                                                </Typography>
+                                            </Space>
+                                            <Progress
+                                                percent={85}
+                                                showInfo={false}
+                                                status="success"
+                                                strokeColor={"#378D3E"}
+                                            />
+                                        </div>
+                                    </Fade>
+
+                                    <Fade bottom delay={700}>
+                                        <div className="mt-2">
+                                            <Space className="d-flex justify-content-between">
+                                                <Typography
+                                                    variant="subtitle1"
+                                                    style={{
+                                                        letterSpacing: "0.5px",
+                                                    }}
+                                                >
+                                                    ENSCAPE
+                                                </Typography>
+                                                <Typography
+                                                    variant="subtitle1"
+                                                    style={{
+                                                        letterSpacing: "0.5px",
+                                                    }}
+                                                >
+                                                    85%
+                                                </Typography>
+                                            </Space>
+                                            <Progress
+                                                percent={85}
+                                                showInfo={false}
+                                                status="success"
+                                                strokeColor={"#378D3E"}
+                                            />
+                                        </div>
+                                    </Fade>
                                 </Grid>
 
                                 <Grid item xs={12} sm={6}>
-                                    <div>
-                                        <Space className="d-flex justify-content-between">
-                                            <Typography
-                                                variant="subtitle1"
-                                                style={{
-                                                    letterSpacing: "0.5px",
-                                                }}
-                                            >
-                                                LUMION
-                                            </Typography>
-                                            <Typography
-                                                variant="subtitle1"
-                                                style={{
-                                                    letterSpacing: "0.5px",
-                                                }}
-                                            >
-                                                80%
-                                            </Typography>
-                                        </Space>
-                                        <Progress
-                                            percent={80}
-                                            showInfo={false}
-                                            status="success"
-                                            strokeColor={"#378D3E"}
-                                        />
-                                    </div>
-                                    <div className="mt-2">
-                                        <Space className="d-flex justify-content-between">
-                                            <Typography
-                                                variant="subtitle1"
-                                                style={{
-                                                    letterSpacing: "0.5px",
-                                                }}
-                                            >
-                                                PHOTOSHOP
-                                            </Typography>
-                                            <Typography
-                                                variant="subtitle1"
-                                                style={{
-                                                    letterSpacing: "0.5px",
-                                                }}
-                                            >
-                                                80%
-                                            </Typography>
-                                        </Space>
-                                        <Progress
-                                            percent={80}
-                                            showInfo={false}
-                                            status="success"
-                                            strokeColor={"#378D3E"}
-                                        />
-                                    </div>
-                                    <div className="mt-2">
-                                        <Space className="d-flex justify-content-between">
-                                            <Typography
-                                                variant="subtitle1"
-                                                style={{
-                                                    letterSpacing: "0.5px",
-                                                }}
-                                            >
-                                                GRAPHIC DESIGN
-                                            </Typography>
-                                            <Typography
-                                                variant="subtitle1"
-                                                style={{
-                                                    letterSpacing: "0.5px",
-                                                }}
-                                            >
-                                                85%
-                                            </Typography>
-                                        </Space>
-                                        <Progress
-                                            percent={85}
-                                            showInfo={false}
-                                            status="success"
-                                            strokeColor={"#378D3E"}
-                                        />
-                                    </div>
+                                    <Fade bottom delay={500}>
+                                        <div>
+                                            <Space className="d-flex justify-content-between">
+                                                <Typography
+                                                    variant="subtitle1"
+                                                    style={{
+                                                        letterSpacing: "0.5px",
+                                                    }}
+                                                >
+                                                    LUMION
+                                                </Typography>
+                                                <Typography
+                                                    variant="subtitle1"
+                                                    style={{
+                                                        letterSpacing: "0.5px",
+                                                    }}
+                                                >
+                                                    80%
+                                                </Typography>
+                                            </Space>
+                                            <Progress
+                                                percent={80}
+                                                showInfo={false}
+                                                status="success"
+                                                strokeColor={"#378D3E"}
+                                            />
+                                        </div>
+                                    </Fade>
+
+                                    <Fade bottom delay={600}>
+                                        <div className="mt-2">
+                                            <Space className="d-flex justify-content-between">
+                                                <Typography
+                                                    variant="subtitle1"
+                                                    style={{
+                                                        letterSpacing: "0.5px",
+                                                    }}
+                                                >
+                                                    PHOTOSHOP
+                                                </Typography>
+                                                <Typography
+                                                    variant="subtitle1"
+                                                    style={{
+                                                        letterSpacing: "0.5px",
+                                                    }}
+                                                >
+                                                    80%
+                                                </Typography>
+                                            </Space>
+                                            <Progress
+                                                percent={80}
+                                                showInfo={false}
+                                                status="success"
+                                                strokeColor={"#378D3E"}
+                                            />
+                                        </div>
+                                    </Fade>
+
+                                    <Fade bottom delay={700}>
+                                        <div className="mt-2">
+                                            <Space className="d-flex justify-content-between">
+                                                <Typography
+                                                    variant="subtitle1"
+                                                    style={{
+                                                        letterSpacing: "0.5px",
+                                                    }}
+                                                >
+                                                    GRAPHIC DESIGN
+                                                </Typography>
+                                                <Typography
+                                                    variant="subtitle1"
+                                                    style={{
+                                                        letterSpacing: "0.5px",
+                                                    }}
+                                                >
+                                                    85%
+                                                </Typography>
+                                            </Space>
+                                            <Progress
+                                                percent={85}
+                                                showInfo={false}
+                                                status="success"
+                                                strokeColor={"#378D3E"}
+                                            />
+                                        </div>
+                                    </Fade>
                                 </Grid>
                             </Grid>
                         </Paper>
@@ -593,63 +610,60 @@ export default function Appbar() {
                     </div>
 
                     <div style={{ marginTop: "7em" }}>
-                        <Typography
-                            variant="h5"
-                            textAlign="center"
-                            style={{
-                                fontWeight: "bold",
-                                letterSpacing: "0.5px",
-                            }}
-                        >
-                            Portfolio
-                        </Typography>
+                        <Fade bottom delay={500}>
+                            <Typography
+                                variant="h5"
+                                textAlign="center"
+                                style={{
+                                    fontWeight: "bold",
+                                    letterSpacing: "0.5px",
+                                }}
+                            >
+                                Portfolio
+                            </Typography>
+                        </Fade>
 
                         <Grid container spacing={3} className="mt-2">
                             {itemData.map((item, idx) => (
                                 <Grid item xs={12} sm={12} md={6} key={idx}>
-                                    <ImageListItem key={item.img}>
-                                        <Image
-                                            alt={item.title}
-                                            // src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                                    <Zoom delay={300}>
+                                        <ImageListItem key={item.img}>
+                                            <Image
+                                                alt={item.title}
+                                                // src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
 
-                                            src={`${item.img}?w=248&fit=crop&auto=format`}
-                                            style={{
-                                                boxShadow:
-                                                    "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-                                                height: "100%",
-                                            }}
-                                        />
-                                        {/* <img
-                                            src={`${item.img}?w=248&fit=crop&auto=format`}
-                                            alt={item.title}
-                                            loading="lazy"
-                                            style={{
-                                                boxShadow:
-                                                    "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-                                                height: "100%",
-                                            }}
-                                        /> */}
-                                        <ImageListItemBar
-                                            title={item.title}
-                                            subtitle={item.author}
-                                        />
-                                    </ImageListItem>
+                                                src={`${item.img}?w=248&fit=crop&auto=format`}
+                                                style={{
+                                                    boxShadow:
+                                                        "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+                                                    height: "100%",
+                                                }}
+                                            />
+
+                                            <ImageListItemBar
+                                                title={item.title}
+                                                subtitle={item.author}
+                                            />
+                                        </ImageListItem>
+                                    </Zoom>
                                 </Grid>
                             ))}
                         </Grid>
                     </div>
 
                     <div style={{ marginTop: "10em" }}>
-                        <Typography
-                            variant="h5"
-                            textAlign="center"
-                            style={{
-                                fontWeight: "bold",
-                                letterSpacing: "0.5px",
-                            }}
-                        >
-                            Work Experience
-                        </Typography>
+                        <Fade bottom delay={400}>
+                            <Typography
+                                variant="h5"
+                                textAlign="center"
+                                style={{
+                                    fontWeight: "bold",
+                                    letterSpacing: "0.5px",
+                                }}
+                            >
+                                Work Experience
+                            </Typography>
+                        </Fade>
 
                         <Grid
                             container
@@ -660,88 +674,95 @@ export default function Appbar() {
                             }}
                         >
                             <Grid item xs={12} md={3}>
-                                <div
-                                    style={{
-                                        height: "30vh",
-                                        padding: "2em",
-                                        background: "#378D3E",
-                                        display: "flex",
-                                        justifyContent: "center",
-                                        alignItems: "center",
-                                        flexDirection: "column",
-                                    }}
-                                >
-                                    <Typography
-                                        variant="subtitle2"
+                                <Fade left delay={400}>
+                                    <div
                                         style={{
-                                            letterSpacing: "0.5px",
-                                            color: "#fefefe",
+                                            height: "30vh",
+                                            padding: "2em",
+                                            background: "#378D3E",
+                                            display: "flex",
+                                            justifyContent: "center",
+                                            alignItems: "center",
+                                            flexDirection: "column",
                                         }}
                                     >
-                                        JULY 2020 - JUNE 2022
-                                    </Typography>
-
-                                    <div>
-                                        <Typography
-                                            variant="h5"
-                                            style={{
-                                                color: "#fefefe",
-                                                letterSpacing: "0.5px",
-                                                marginTop: "0.5em",
-                                            }}
-                                        >
-                                            CCLC Builders
-                                        </Typography>
-                                    </div>
-                                </div>
-                            </Grid>
-                            <Grid item xs={12} md={9}>
-                                <div
-                                    style={{
-                                        height: "30vh",
-                                        padding: "2em",
-                                        display: "flex",
-                                        justifyContent: "center",
-                                        alignItems: "start",
-                                        flexDirection: "column",
-                                    }}
-                                >
-                                    <Typography
-                                        variant="h5"
-                                        style={{
-                                            letterSpacing: "0.5px",
-                                            marginTop: "0.5em",
-                                            color: "#424242",
-                                        }}
-                                    >
-                                        Junior Architect
-                                    </Typography>
-                                    <div className="mt-2">
                                         <Typography
                                             variant="subtitle2"
                                             style={{
                                                 letterSpacing: "0.5px",
-                                                color: "#616161",
+                                                color: "#fefefe",
                                             }}
                                         >
-                                            Designed and generated construction
-                                            drawings and illustrations, ensuring
-                                            that the client's needs and goals
-                                            were fully met. Prepared and
-                                            maintained various architectural
-                                            documents, reviewed construction
-                                            plans, and monitored the onsite
-                                            workmanship; developed 3D models.
-                                            Pro-actively participated in weekly
-                                            team meetings and contributed to
-                                            idea generation. Worked closely with
-                                            expeditors, structural engineers,
-                                            and general contractors. Conducted
-                                            market research and stayed
-                                            up-to-date with current trends.
+                                            JULY 2020 - JUNE 2022
                                         </Typography>
+
+                                        <div>
+                                            <Typography
+                                                variant="h5"
+                                                style={{
+                                                    color: "#fefefe",
+                                                    letterSpacing: "0.5px",
+                                                    marginTop: "0.5em",
+                                                }}
+                                            >
+                                                CCLC Builders
+                                            </Typography>
+                                        </div>
                                     </div>
-                                </div>
+                                </Fade>
+                            </Grid>
+                            <Grid item xs={12} md={9}>
+                                <Fade right delay={400}>
+                                    <div
+                                        style={{
+                                            height: "30vh",
+                                            padding: "2em",
+                                            display: "flex",
+                                            justifyContent: "center",
+                                            alignItems: "start",
+                                            flexDirection: "column",
+                                        }}
+                                    >
+                                        <Typography
+                                            variant="h5"
+                                            style={{
+                                                letterSpacing: "0.5px",
+                                                marginTop: "0.5em",
+                                                color: "#424242",
+                                            }}
+                                        >
+                                            Junior Architect
+                                        </Typography>
+                                        <div className="mt-2">
+                                            <Typography
+                                                variant="subtitle2"
+                                                style={{
+                                                    letterSpacing: "0.5px",
+                                                    color: "#616161",
+                                                }}
+                                            >
+                                                Designed and generated
+                                                construction drawings and
+                                                illustrations, ensuring that the
+                                                client's needs and goals were
+                                                fully met. Prepared and
+                                                maintained various architectural
+                                                documents, reviewed construction
+                                                plans, and monitored the onsite
+                                                workmanship; developed 3D
+                                                models. Pro-actively
+                                                participated in weekly team
+                                                meetings and contributed to idea
+                                                generation. Worked closely with
+                                                expeditors, structural
+                                                engineers, and general
+                                                contractors. Conducted market
+                                                research and stayed up-to-date
+                                                with current trends.
+                                            </Typography>
+                                        </div>
+                                    </div>
+                                </Fade>
                             </Grid>
                         </Grid>
 
@@ -754,95 +775,105 @@ export default function Appbar() {
                             }}
                         >
                             <Grid item xs={12} md={3}>
-                                <div
-                                    style={{
-                                        height: "30vh",
-                                        padding: "2em",
-                                        background: "#378D3E",
-                                        display: "flex",
-                                        justifyContent: "center",
-                                        alignItems: "center",
-                                        flexDirection: "column",
-                                    }}
-                                >
-                                    <div>
-                                        <Typography
-                                            variant="h5"
-                                            textAlign="center"
-                                            style={{
-                                                color: "#fefefe",
-                                                letterSpacing: "0.5px",
-                                                marginTop: "0.5em",
-                                            }}
-                                        >
-                                            Freelance Architect
-                                        </Typography>
-                                    </div>
-                                </div>
-                            </Grid>
-                            <Grid item xs={12} md={9}>
-                                <div
-                                    style={{
-                                        height: "30vh",
-                                        padding: "2em",
-                                        display: "flex",
-                                        justifyContent: "center",
-                                        alignItems: "start",
-                                        flexDirection: "column",
-                                    }}
-                                >
-                                    <Typography
-                                        variant="h5"
+                                <Fade left delay={500}>
+                                    <div
                                         style={{
-                                            letterSpacing: "0.5px",
-                                            marginTop: "0.5em",
-                                            color: "#424242",
+                                            height: "30vh",
+                                            padding: "2em",
+                                            background: "#378D3E",
+                                            display: "flex",
+                                            justifyContent: "center",
+                                            alignItems: "center",
+                                            flexDirection: "column",
                                         }}
                                     >
-                                        Junior Architect
-                                    </Typography>
-                                    <div className="mt-2">
+                                        <div>
+                                            <Typography
+                                                variant="h5"
+                                                textAlign="center"
+                                                style={{
+                                                    color: "#fefefe",
+                                                    letterSpacing: "0.5px",
+                                                    marginTop: "0.5em",
+                                                }}
+                                            >
+                                                Freelance Architect
+                                            </Typography>
+                                        </div>
+                                    </div>
+                                </Fade>
+                            </Grid>
+                            <Grid item xs={12} md={9}>
+                                <Fade right delay={500}>
+                                    <div
+                                        style={{
+                                            height: "30vh",
+                                            padding: "2em",
+                                            display: "flex",
+                                            justifyContent: "center",
+                                            alignItems: "start",
+                                            flexDirection: "column",
+                                        }}
+                                    >
                                         <Typography
-                                            variant="subtitle2"
+                                            variant="h5"
                                             style={{
                                                 letterSpacing: "0.5px",
-                                                color: "#616161",
+                                                marginTop: "0.5em",
+                                                color: "#424242",
                                             }}
                                         >
-                                            Designed and generated construction
-                                            drawings and illustrations, ensuring
-                                            that the client's needs and goals
-                                            were fully met. Prepared and
-                                            maintained various architectural
-                                            documents, reviewed construction
-                                            plans, and monitored the onsite
-                                            workmanship; developed 3D models.
-                                            Pro-actively participated in weekly
-                                            team meetings and contributed to
-                                            idea generation. Worked closely with
-                                            expeditors, structural engineers,
-                                            and general contractors. Conducted
-                                            market research and stayed
-                                            up-to-date with current trends.
+                                            Junior Architect
                                         </Typography>
+                                        <div className="mt-2">
+                                            <Typography
+                                                variant="subtitle2"
+                                                style={{
+                                                    letterSpacing: "0.5px",
+                                                    color: "#616161",
+                                                }}
+                                            >
+                                                Designed and generated
+                                                construction drawings and
+                                                illustrations, ensuring that the
+                                                client's needs and goals were
+                                                fully met. Prepared and
+                                                maintained various architectural
+                                                documents, reviewed construction
+                                                plans, and monitored the onsite
+                                                workmanship; developed 3D
+                                                models. Pro-actively
+                                                participated in weekly team
+                                                meetings and contributed to idea
+                                                generation. Worked closely with
+                                                expeditors, structural
+                                                engineers, and general
+                                                contractors. Conducted market
+                                                research and stayed up-to-date
+                                                with current trends.
+                                            </Typography>
+                                        </div>
                                     </div>
-                                </div>
+                                </Fade>
                             </Grid>
                         </Grid>
+
+                        <div id="education" />
                     </div>
 
                     <div style={{ marginTop: "8em" }}>
-                        <Typography
-                            variant="h5"
-                            textAlign="center"
-                            style={{
-                                fontWeight: "bold",
-                                letterSpacing: "0.5px",
-                            }}
-                        >
-                            Education
-                        </Typography>
-
+                        <Fade bottom delay={400}>
+                            <Typography
+                                variant="h5"
+                                textAlign="center"
+                                style={{
+                                    fontWeight: "bold",
+                                    letterSpacing: "0.5px",
+                                }}
+                            >
+                                Education
+                            </Typography>
+                        </Fade>
                         <Grid
                             container
                             className="mt-4"
@@ -852,75 +883,80 @@ export default function Appbar() {
                             }}
                         >
                             <Grid item xs={12} md={3}>
-                                <div
-                                    style={{
-                                        height: "25vh",
-                                        padding: "2em",
-                                        background: "#378D3E",
-                                        display: "flex",
-                                        justifyContent: "center",
-                                        alignItems: "center",
-                                        flexDirection: "column",
-                                    }}
-                                >
-                                    <Typography
-                                        variant="subtitle2"
+                                <Fade left delay={400}>
+                                    <div
                                         style={{
-                                            letterSpacing: "0.5px",
-                                            color: "#fefefe",
+                                            height: "25vh",
+                                            padding: "2em",
+                                            background: "#378D3E",
+                                            display: "flex",
+                                            justifyContent: "center",
+                                            alignItems: "center",
+                                            flexDirection: "column",
                                         }}
                                     >
-                                        2014 - 2020
-                                    </Typography>
-
-                                    <div>
                                         <Typography
-                                            variant="h5"
+                                            variant="subtitle2"
                                             style={{
-                                                color: "#fefefe",
                                                 letterSpacing: "0.5px",
-                                                marginTop: "0.5em",
+                                                color: "#fefefe",
                                             }}
                                         >
-                                            Bachelors Degree
+                                            2014 - 2020
                                         </Typography>
+
+                                        <div>
+                                            <Typography
+                                                variant="h5"
+                                                style={{
+                                                    color: "#fefefe",
+                                                    letterSpacing: "0.5px",
+                                                    marginTop: "0.5em",
+                                                }}
+                                            >
+                                                Bachelors Degree
+                                            </Typography>
+                                        </div>
                                     </div>
-                                </div>
+                                </Fade>
                             </Grid>
                             <Grid item xs={12} md={9}>
-                                <div
-                                    style={{
-                                        height: "25vh",
-                                        padding: "2em",
-                                        display: "flex",
-                                        justifyContent: "center",
-                                        alignItems: "start",
-                                        flexDirection: "column",
-                                    }}
-                                >
-                                    <div>
-                                        <Typography
-                                            variant="h5"
-                                            style={{
-                                                letterSpacing: "0.5px",
-                                                marginTop: "0.5em",
-                                                color: "#424242",
-                                            }}
-                                        >
-                                            Bachelor of Science in Architecture
-                                        </Typography>
+                                <Fade right delay={400}>
+                                    <div
+                                        style={{
+                                            height: "25vh",
+                                            padding: "2em",
+                                            display: "flex",
+                                            justifyContent: "center",
+                                            alignItems: "start",
+                                            flexDirection: "column",
+                                        }}
+                                    >
+                                        <div>
+                                            <Typography
+                                                variant="h5"
+                                                style={{
+                                                    letterSpacing: "0.5px",
+                                                    marginTop: "0.5em",
+                                                    color: "#424242",
+                                                }}
+                                            >
+                                                Bachelor of Science in
+                                                Architecture
+                                            </Typography>
 
-                                        <Typography
-                                            variant="subtitle1"
-                                            style={{
-                                                letterSpacing: "0.5px",
-                                                color: "#616161",
-                                            }}
-                                        >
-                                            Bicol University
-                                        </Typography>
+                                            <Typography
+                                                variant="subtitle1"
+                                                style={{
+                                                    letterSpacing: "0.5px",
+                                                    color: "#616161",
+                                                }}
+                                            >
+                                                Bicol University
+                                            </Typography>
+                                        </div>
                                     </div>
-                                </div>
+                                </Fade>
                             </Grid>
                         </Grid>
 
@@ -933,162 +969,171 @@ export default function Appbar() {
                             }}
                         >
                             <Grid item xs={12} md={3}>
-                                <div
-                                    style={{
-                                        height: "25vh",
-                                        padding: "2em",
-                                        background: "#378D3E",
-                                        display: "flex",
-                                        justifyContent: "center",
-                                        alignItems: "center",
-                                        flexDirection: "column",
-                                    }}
-                                >
-                                    <Typography
-                                        variant="subtitle2"
+                                <Fade left delay={500}>
+                                    <div
                                         style={{
-                                            letterSpacing: "0.5px",
-                                            color: "#fefefe",
+                                            height: "25vh",
+                                            padding: "2em",
+                                            background: "#378D3E",
+                                            display: "flex",
+                                            justifyContent: "center",
+                                            alignItems: "center",
+                                            flexDirection: "column",
                                         }}
                                     >
-                                        2014 - 2020
-                                    </Typography>
-
-                                    <div>
                                         <Typography
-                                            variant="h5"
+                                            variant="subtitle2"
                                             style={{
-                                                color: "#fefefe",
                                                 letterSpacing: "0.5px",
-                                                marginTop: "0.5em",
+                                                color: "#fefefe",
                                             }}
                                         >
-                                            High School
+                                            2014 - 2020
                                         </Typography>
+
+                                        <div>
+                                            <Typography
+                                                variant="h5"
+                                                style={{
+                                                    color: "#fefefe",
+                                                    letterSpacing: "0.5px",
+                                                    marginTop: "0.5em",
+                                                }}
+                                            >
+                                                High School
+                                            </Typography>
+                                        </div>
                                     </div>
-                                </div>
+                                </Fade>
                             </Grid>
                             <Grid item xs={12} md={9}>
-                                <div
-                                    style={{
-                                        height: "25vh",
-                                        padding: "2em",
-                                        display: "flex",
-                                        justifyContent: "center",
-                                        alignItems: "start",
-                                        flexDirection: "column",
-                                    }}
-                                >
-                                    <div>
-                                        <Typography
-                                            variant="h5"
-                                            style={{
-                                                letterSpacing: "0.5px",
-                                                marginTop: "0.5em",
-                                                color: "#424242",
-                                            }}
-                                        >
-                                            Major in Computer Hardware Servicing
-                                        </Typography>
+                                <Fade right delay={500}>
+                                    <div
+                                        style={{
+                                            height: "25vh",
+                                            padding: "2em",
+                                            display: "flex",
+                                            justifyContent: "center",
+                                            alignItems: "start",
+                                            flexDirection: "column",
+                                        }}
+                                    >
+                                        <div>
+                                            <Typography
+                                                variant="h5"
+                                                style={{
+                                                    letterSpacing: "0.5px",
+                                                    marginTop: "0.5em",
+                                                    color: "#424242",
+                                                }}
+                                            >
+                                                Major in Computer Hardware
+                                                Servicing
+                                            </Typography>
 
-                                        <Typography
-                                            variant="subtitle1"
-                                            style={{
-                                                letterSpacing: "0.5px",
-                                                color: "#616161",
-                                            }}
-                                        >
-                                            Tiwi Agro-Industrial School
-                                        </Typography>
+                                            <Typography
+                                                variant="subtitle1"
+                                                style={{
+                                                    letterSpacing: "0.5px",
+                                                    color: "#616161",
+                                                }}
+                                            >
+                                                Tiwi Agro-Industrial School
+                                            </Typography>
+                                        </div>
                                     </div>
-                                </div>
+                                </Fade>
                             </Grid>
                         </Grid>
                     </div>
                 </Container>
             </Container>
 
-            <div className="contact">
+            <div className="contact" id="contact">
                 <Container maxWidth="sm">
-                    <Paper
-                        style={{
-                            height: "50vh",
-                            padding: "2em",
-                            // display: "flex",
-                            // justifyContent: "center",
-                        }}
-                    >
-                        <Typography
-                            variant="h5"
-                            style={{ fontWeight: "bold", textAlign: "center" }}
+                    <Zoom>
+                        <Paper
+                            style={{
+                                height: "50vh",
+                                padding: "2em",
+                            }}
                         >
-                            Contact Me
-                        </Typography>
-                        <div className="mt-4">
                             <Typography
-                                variant="subtitle2"
+                                variant="h5"
                                 style={{
-                                    letterSpacing: "0.5px",
                                     fontWeight: "bold",
+                                    textAlign: "center",
                                 }}
                             >
-                                Address:
+                                Contact Me
                             </Typography>
-                            <Typography
-                                variant="subtitle2"
-                                style={{
-                                    letterSpacing: "0.5px",
-                                    color: "#616161",
-                                }}
-                            >
-                                Libtong, Tiwi, Albay, Philippines
-                            </Typography>
-                        </div>
+                            <div className="mt-4">
+                                <Typography
+                                    variant="subtitle2"
+                                    style={{
+                                        letterSpacing: "0.5px",
+                                        fontWeight: "bold",
+                                    }}
+                                >
+                                    Address:
+                                </Typography>
+                                <Typography
+                                    variant="subtitle2"
+                                    style={{
+                                        letterSpacing: "0.5px",
+                                        color: "#616161",
+                                    }}
+                                >
+                                    Libtong, Tiwi, Albay, Philippines
+                                </Typography>
+                            </div>
 
-                        <div className="mt-4">
-                            <Typography
-                                variant="subtitle2"
-                                style={{
-                                    letterSpacing: "0.5px",
-                                    fontWeight: "bold",
-                                }}
-                            >
-                                Phone:
-                            </Typography>
-                            <Typography
-                                variant="subtitle2"
-                                style={{
-                                    letterSpacing: "0.5px",
-                                    color: "#616161",
-                                }}
-                            >
-                                +63-9100193231
-                            </Typography>
-                        </div>
-                        <div className="mt-4">
-                            <Typography
-                                variant="subtitle2"
-                                style={{
-                                    letterSpacing: "0.5px",
-                                    fontWeight: "bold",
-                                }}
-                            >
-                                Email:
-                            </Typography>
-                            <Typography
-                                variant="subtitle2"
-                                style={{
-                                    letterSpacing: "0.5px",
-                                    color: "#616161",
-                                }}
-                            >
-                                marvincanezo2897@gmail.com
-                            </Typography>
-                        </div>
-                    </Paper>
+                            <div className="mt-4">
+                                <Typography
+                                    variant="subtitle2"
+                                    style={{
+                                        letterSpacing: "0.5px",
+                                        fontWeight: "bold",
+                                    }}
+                                >
+                                    Phone:
+                                </Typography>
+                                <Typography
+                                    variant="subtitle2"
+                                    style={{
+                                        letterSpacing: "0.5px",
+                                        color: "#616161",
+                                    }}
+                                >
+                                    +63-9100193231
+                                </Typography>
+                            </div>
+                            <div className="mt-4">
+                                <Typography
+                                    variant="subtitle2"
+                                    style={{
+                                        letterSpacing: "0.5px",
+                                        fontWeight: "bold",
+                                    }}
+                                >
+                                    Email:
+                                </Typography>
+                                <Typography
+                                    variant="subtitle2"
+                                    style={{
+                                        letterSpacing: "0.5px",
+                                        color: "#616161",
+                                    }}
+                                >
+                                    marvincanezo2897@gmail.com
+                                </Typography>
+                            </div>
+                        </Paper>
+                    </Zoom>
                 </Container>
             </div>
             <div style={{ height: "10vh" }}></div>
+            <FloatButton.BackTop />
         </div>
     );
 }
