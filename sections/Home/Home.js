@@ -53,6 +53,8 @@ export default function Home() {
                 <Space className="mt-4" size={20}>
                     <Fade bottom delay={400}>
                         <Button
+                            type="link"
+                            href="#contact"
                             size="large"
                             style={{
                                 background: "#378D3E",
@@ -63,7 +65,7 @@ export default function Home() {
                                 fontSize: "14px",
                             }}
                         >
-                            Hire Me
+                            <span className="mt-1">Hire Me</span>
                         </Button>
                     </Fade>{" "}
                     <Fade bottom delay={500}>
