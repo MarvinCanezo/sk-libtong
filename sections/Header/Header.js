@@ -10,7 +10,6 @@ import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import Avatar from "@mui/material/Avatar";
 import ImageListItem from "@mui/material/ImageListItem";
-import ScrollAnimation from "react-animate-on-scroll";
 import Fade from "react-reveal/Fade";
 import { Zoom } from "react-reveal";
 
