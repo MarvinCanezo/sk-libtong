@@ -60,7 +60,33 @@ const itemData = [
         cols: 2,
         featured: true,
     },
+    {
+        img: "/front-elevation.jpg",
+        title: "Front Elevation",
+        author: "Entry Porch",
+        rows: 2,
+        cols: 2,
+        featured: true,
+    },
+    {
+        img: "/remorosa.jpg",
+        title: "Remorosa",
+        author: "Entry Porch",
+        rows: 2,
+        cols: 2,
+        featured: true,
+    },
+    // to add image just copy the last bracket
+    // {
+    //     img: "/entry-porch.jpg",
+    //     title: "Bungalow House",
+    //     author: "Entry Porch",
+    //     rows: 2,
+    //     cols: 2,
+    //     featured: true,
+    // },
 ];
+
 export default function Portfolio() {
     return (
         <div style={{ marginTop: "7em" }}>
@@ -100,6 +126,34 @@ export default function Portfolio() {
                         </Zoom>
                     </Grid>
                 ))}
+            </Grid>
+            <Grid container style={{ marginTop: "2em" }} spacing={4}>
+                <Grid item xs={12}>
+                    <Fade bottom delay={500}>
+                        <video
+                            className="border"
+                            controls
+                            width="100%"
+                            // width="100%"
+                            height={500}
+                            src="/video1.mp4"
+                        />
+                    </Fade>
+                </Grid>
+
+                <Grid item xs={12}>
+                    <Fade bottom delay={500}>
+                        <video
+                            className="border"
+                            controls
+                            width="100%"
+                            // width="100%"
+                            height={500}
+                            src="/video1.mp4"
+                        />
+                    </Fade>
+                </Grid>
+                {/*  TO ADD ANOTHER VIDEO JUST COPY FROM GRID ITEM */}
             </Grid>
         </div>
     );
