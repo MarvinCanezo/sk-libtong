@@ -153,6 +153,18 @@ export default function Portfolio() {
                         />
                     </Fade>
                 </Grid>
+                <Grid item xs={12}>
+                    <Fade bottom delay={500}>
+                        <video
+                            className="border"
+                            controls
+                            width="100%"
+                            // width="100%"
+                            height={500}
+                            src="/video1.mp4"
+                        />
+                    </Fade>
+                </Grid>
                 {/*  TO ADD ANOTHER VIDEO JUST COPY FROM GRID ITEM */}
             </Grid>
         </div>
